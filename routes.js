@@ -24,19 +24,12 @@ const db = mysql.createPool({
 });
 
 
-db.connect((err) => {
+db.getConnection((err, connection) => {
   if (err) {
-    console.error("Database connection failed: " + err.message);
+    console.error("❌ DB connection failed:", err.message);
   } else {
-    console.log("Connected to MySQL Database ✅");
-
-    db.query("SHOW TABLES", (err, tables) => {
-      if (err) {
-        console.error("Error checking tables:", err);
-      } else {
-        console.log("Available tables:", tables.map(t => Object.values(t)[0]));
-      }
-    });
+    console.log("✅ DB connected successfully");
+    connection.release(); // release after testing
   }
 });
 
