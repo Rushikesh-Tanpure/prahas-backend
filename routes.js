@@ -149,6 +149,8 @@ router.post("/reset-password", (req, res) => {
         "SELECT * FROM users WHERE reset_token = ? AND reset_token_expiry > ?",
         [token, new Date()],
         async (err, results) => {
+          console.log(err)
+          console.log(results)
             if (err) return res.status(500).json({ error: err.message });
             
             if (results.length === 0) {
