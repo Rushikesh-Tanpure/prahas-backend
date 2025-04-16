@@ -9,16 +9,20 @@ const mysql = require("mysql2");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
   port: 12464,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
   ssl: {
-    rejectUnauthorized: false, // Ensures SSL verification
+    rejectUnauthorized: false,
   },
 });
+
 
 db.connect((err) => {
   if (err) {
