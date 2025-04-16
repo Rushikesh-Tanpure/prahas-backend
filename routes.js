@@ -102,7 +102,7 @@ router.post("/forgot-password", (req, res) => {
         
         db.query("SELECT * FROM users WHERE email = ?", [email], (err, results) => {
             if (err) {
-                console.error("DB error:", err);
+                console.log(err)
                 return res.status(500).json({ error: err.message });
             }
             
