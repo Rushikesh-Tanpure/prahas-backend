@@ -11,7 +11,11 @@ const app = express();
 // Update CORS to allow your frontend domain
 // Update CORS to allow your specific frontend domain
 app.use(cors({
-  origin: 'https://prahas-frontend.vercel.app',
+  origin: [
+    'http://localhost:5500',
+    'http://127.0.0.1:5501',
+    'https://prahas-frontend.vercel.app' // Your frontend domain
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
