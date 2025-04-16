@@ -203,7 +203,7 @@ async function sendPasswordResetEmail(email, token) {
                 <p>If you didn't request this, please ignore this email.</p>
             `
         };
-        
+        console.log("hello")
         // Send email and wait for result
         const info = await transporter.sendMail(mailOptions);
         console.log('Email sent:', info.response);
