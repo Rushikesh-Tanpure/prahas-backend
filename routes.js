@@ -177,6 +177,7 @@ router.post("/reset-password", (req, res) => {
 // Function to send password reset email
 async function sendPasswordResetEmail(email, token) {
     try {
+      console.log("jay ho")
         // Create a nodemailer transporter using Gmail
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -187,7 +188,7 @@ async function sendPasswordResetEmail(email, token) {
         });
         
         // Reset password URL - pointing to your FRONTEND
-        const resetUrl = `https://prasa-frontend-final.vercel.app/api/reset-password.html?token=${token}`;
+        const resetUrl = `https://prahas-frontend.vercel.app/api/reset-password.html?token=${token}`;
         
         // Email options
         const mailOptions = {
