@@ -180,7 +180,9 @@ async function sendPasswordResetEmail(email, token) {
       console.log("jay ho")
         // Create a nodemailer transporter using Gmail
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+             host: 'smtp.gmail.com',
+  port: 587, // use 587 (TLS), not 465 (SSL)
+  secure: false, // TLS requires secure=false
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS  // Use App Password for Gmail
