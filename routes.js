@@ -190,7 +190,7 @@ async function sendPasswordResetEmail(email, token) {
         });
         
         // Reset password URL - pointing to your FRONTEND
-        const resetUrl = `https://prahas-frontend.vercel.app/api/reset-password.html?token=${token}`;
+        const resetUrl = `https://prahas-frontend.vercel.app/reset-password.html?token=${token}`;
         
         // Email options
         const mailOptions = {
@@ -208,7 +208,7 @@ async function sendPasswordResetEmail(email, token) {
         console.log("hello")
         // Send email and wait for result
         const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent:', info.response);
+        console.log('Email sent:'+email, info.response);
         return true;
     } catch (error) {
         console.error('Error sending email:', error);
