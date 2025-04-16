@@ -14,7 +14,7 @@ app.use(cors({
   origin: [
     'http://localhost:5500',
     'http://127.0.0.1:5501',
-    'https://prasa-frontend-final.vercel.app' // Your frontend domain
+    'https://prahas-backend-final.vercel.app' // Your frontend domain
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
